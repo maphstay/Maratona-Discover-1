@@ -5,10 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com"> 
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet"> 
     <title>Dev Finance$</title>
 </head>
+
 <body>
 
     <header>
@@ -26,7 +27,7 @@
                     </span> 
                     <img src="assets/income.svg" alt="imagem de entradas">
                 </h3>
-                <p>R$ 5.000,00</p>
+                <p id="incomeDisplay">R$ 0,00</p>
             </div>
 
             <div class="card">
@@ -36,17 +37,17 @@
                     </span> 
                     <img src="assets/expense.svg" alt="imagem de saídas">
                 </h3>
-                <p>R$ 2.000,00</p>
+                <p id="expenseDisplay">R$ 0,00</p>
             </div>
             
-            <div class="card total">
+            <div id="teste" class="card total">
                 <h3>
                     <span>
                         Total
                     </span> 
                     <img src="assets/total.svg" alt="imagem de total">
                 </h3>
-                <p>R$ 3.000,00</p>
+                <p id="totalDisplay">R$ 0,00</p>
             </div>
         </section>
 
@@ -65,30 +66,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="description">Luz</td>
-                        <td class="expense">- R$ 500,00</td>
-                        <td class="date">23/03/2021</td>
-                        <td>
-                            <img src="assets/minus.svg" alt="Remover Transação">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="description">Criação website</td>
-                        <td class="income">R$ 5000,00</td>
-                        <td class="date">23/03/2021</td>
-                        <td>
-                            <img src="assets/minus.svg" alt="Remover Transação">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="description">Internet</td>
-                        <td class="expense">- R$ 200,00</td>
-                        <td class="date">23/03/2021</td>
-                        <td>
-                            <img src="assets/minus.svg" alt="Remover Transação">
-                        </td>
-                    </tr>
                 </tbody>
             </table>
         </section>
@@ -98,7 +75,7 @@
         <div class="modal">
             <div id="form">
                 <h2>Nova Transação</h2>
-                <form action="">
+                <form action="" onsubmit="Form.submit(event)" >
                     <div class="input-group">
                         <label for="description" class="sr-only">Descrição</label>
                         <input type="text" id="description" name="description" placeholder="Descrição">
@@ -127,17 +104,7 @@
     <Footer>
         <p>Dev Finance$ - 2021</p>
     </Footer>
-    <script>
-        const Modal = {
-            open() {
-                document.querySelector('.modal-overlay')
-                .classList.add('active')
-            },
-            close() {
-                document.querySelector('.modal-overlay')
-                .classList.remove('active')
-            }
-        }
-    </script>
+    
 </body>
+<script type="text/javascript" src="script.js"></script>
 </html>

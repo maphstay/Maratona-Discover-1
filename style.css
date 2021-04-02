@@ -191,6 +191,10 @@ td.expense {
     color: #e92929;
 }
 
+#tRemove {
+    cursor: pointer;
+}
+
 /*-----Modal-----*/
 .modal-overlay {
     width: 100%;
