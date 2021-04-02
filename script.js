@@ -59,7 +59,7 @@ const Transaction = {
     total() {
         let total = Transaction.incomes() + Transaction.expenses()
         const color = total < 0 ? "#e92929" : "#49aa26"
-        document.getElementById('teste').style.backgroundColor = `${color}`
+        document.getElementById('total').style.backgroundColor = `${color}`
             
         return total
     }
@@ -152,7 +152,7 @@ const Form = {
         const { description, amount, date } = Form.getValues()
         
         if ( description.trim() === "" || amount.trim() === "" || date.trim() === "" ) {
-            throw new Error("Por favor, preencha todos os campos!")
+            throw new Error("Campos obrigatórios")
         }
     },
 

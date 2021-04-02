@@ -48,12 +48,11 @@ h2 {
 
 /*-----Links & Button-----*/
 a {
-    color: var(--green);
-    text-decoration: none;
+    opacity: 0.7;
 }
 
 a:hover {
-    color: var(--ligth-green);
+    opacity: 1;
 }
 
 button {
