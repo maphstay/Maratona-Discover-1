@@ -41,7 +41,6 @@ body {
 /*-----Titles-----*/
 h2 {
     margin-top: 3.2rem;
-    margin-bottom: 0.8rem;
     color: var(--dark-blue);
     font-weight: normal;
 }
@@ -49,6 +48,7 @@ h2 {
 /*-----Links & Button-----*/
 a {
     opacity: 0.7;
+    text-decoration: none;
 }
 
 a:hover {
@@ -215,6 +215,7 @@ td.expense {
 }
 
 .modal {
+    width: 30rem;
     background: #f0f2f5;
     padding: 2.4rem;
     position: relative;

@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="assets/favicon.ico"/>
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet"> 
     <title>Dev Finance$</title>
 </head>
@@ -84,8 +86,8 @@
 
                     <div class="input-group">
                         <label for="amount" class="sr-only">Valor</label>
-                        <input type="number" id="amount" name="description" placeholder="0,00" step="0.01">
-                        <small class="help">Use o sinal - (negativo) para despesas e, (vírgula), para casas decimais</small>
+                        <input type="text" id="amount" name="description" placeholder="R$ 0,00" data-thousands="." data-decimal="," data-prefix="R$ " data-allow-negative="true" >
+                        <small class="help">Use o sinal - (negativo) para despesas.</small>
                     </div>
 
                     <div class="input-group">

@@ -3,10 +3,14 @@ const Modal = {
     open() {
         document.querySelector('.modal-overlay')
         .classList.add('active')
+
+        $('#amount').maskMoney();
     },
     close() {
         document.querySelector('.modal-overlay')
         .classList.remove('active')
+
+        Form.clearFields()
     }
 }
 
@@ -35,7 +39,7 @@ const Transaction = {
 
         App.reload()
     },
-
+    
     incomes() {
         let income = 0;
         Transaction.all.forEach(transaction => {
@@ -77,10 +81,11 @@ const DOM = {
         DOM.transactionsContainer.appendChild(tr)
     },
     innerHTMLTransaction(transaction, index) {
+        
         const CSSclass = transaction.amount > 0 ? "income" : "expense"
 
         const amount = Utils.formatCurrency(transaction.amount)
-
+        
         const html = `
             <td class="description">${transaction.description}</td>
             <td class="${CSSclass}">${amount}</td>
@@ -110,10 +115,9 @@ const DOM = {
 
 //-----Mascara de moeda-----
 const Utils = {
-    formatAmount(value) {
-        value = Number(value) * 100
+    formatAmount(value) { 
+        value = $('#amount').maskMoney("unmasked")[0];
         return value
-        console.log(value)
     },
 
     formatDate(date) {
@@ -122,15 +126,13 @@ const Utils = {
     },
 
     formatCurrency(value) {
-        const signal = Number(value) < 0 ? "-" : ""
-        value = String(value).replace(/\D/g, "")
-        value = Number(value) / 100
+        
         value = value.toLocaleString("pt-BR", {
             style: "currency",
             currency: "BRL"
         })
 
-        return signal + value
+        return value
     }
 }
 
@@ -160,7 +162,7 @@ const Form = {
         let { description, amount, date } = Form.getValues()
         amount = Utils.formatAmount(amount)
         date = Utils.formatDate(date)
-        
+
         return {
             description,
             amount,
@@ -193,7 +195,7 @@ const Form = {
 //-----Init e reload App-----
 const App = {
     init()   {
-        
+
         Transaction.all.forEach(DOM.addTransaction)
         
         DOM.updateBalance()
